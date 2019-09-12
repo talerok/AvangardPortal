@@ -1,3 +1,5 @@
+import { ContractSubStepModel } from './contract-sub-step-model';
+
 export enum ContractType {
 	GK,
 	VTS
@@ -10,6 +12,7 @@ export enum ContractState {
 }
 
 export interface ContractModel {
+	id: number;
 	type: ContractType;
 	num: string;
 	itemAmount: number;
@@ -18,4 +21,6 @@ export interface ContractModel {
 
 	state: ContractState;
 	warnings: string[];
+
+	steps?: ContractSubStepModel[][];
 }

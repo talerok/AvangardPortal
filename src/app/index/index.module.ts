@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { IndexComponent } from './components/index/index.component';
 import { RouterModule } from '@angular/router';
-import { IndexRouting } from './index-routing';
 import { CommonModule as Cmodule } from '@angular/common';
 import { TileComponent } from './components/tile/tile.component';
 import { CommonModule } from '@common/common.module';
+import { indexRouting } from './index-routing';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { CommonModule } from '@common/common.module';
 		Cmodule,
 		CommonModule,
 		BrowserModule,
-		RouterModule.forRoot(IndexRouting),
+		RouterModule.forRoot(indexRouting),
 	],
 	providers: [],
 	exports: [

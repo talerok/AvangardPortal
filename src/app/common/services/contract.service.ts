@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ContractModel, ContractType, ContractState } from '@common/models/contract-model';
+import { ContractSubStepModel } from '@common/models/contract-sub-step-model';
 
 @Injectable()
 export class ContractService {
@@ -13,30 +14,55 @@ export class ContractService {
 		'На снаряжении',
 		'Отгружено заказчику',
 		'Принято заказчиком'
-	]
+	];
 
-	private generateFakeWarnings(id: number): string[] {
+	private _generateFakeWarnings(id: number): string[] {
 		const size = id % (ContractService.stepsNames.length + 1);
 		return ContractService.stepsNames.slice(0, size);
 	}
 
-	private generateFakeContracts(count: number): ContractModel[] {
+	private _generateFakeContract(id: number): ContractModel {
+		return {
+			id,
+			type: id % 2 ? ContractType.GK : ContractType.VTS,
+			num: `000${id}`,
+			itemAmount: id + 100,
+			itemName: `Изделие ${id}`,
+			period: [new Date(), new Date()],
+			state: id % 3 as ContractState,
+			warnings: this._generateFakeWarnings(id)
+		};
+	}
+
+	private _generateFakeSteps(id: number) {
+		const res = ContractService.stepsNames.map((x, stepId) => {
+			const subSteps: ContractSubStepModel[] = [];
+			for (let i = 0; i < (id + stepId + 1) % 6; i++) {
+				subSteps.push({
+					id: 100000 * id + 1000 * stepId + i,
+					name: `${x} + i`
+				});
+			}
+			return subSteps;
+		});
+		return res;
+	}
+
+	private _generateFakeContracts(count: number): ContractModel[] {
 		const res: ContractModel[] = [];
 		for (let i = 0; i < count; i++) {
-			res.push({
-				type: i % 2 ? ContractType.GK : ContractType.VTS,
-				num: `000${i}`,
-				itemAmount: i + 100,
-				itemName: `Изделие ${i}`,
-				period: [new Date(), new Date()],
-				state: i % 3 as ContractState,
-				warnings: this.generateFakeWarnings(i)
-			});
+			res.push(this._generateFakeContract(i));
 		}
 		return res;
 	}
 
 	public getAll(date: Date): Observable<ContractModel[]> {
-		return of(this.generateFakeContracts(20));
+		return of(this._generateFakeContracts(20));
+	}
+
+	public getById(id: number): Observable<ContractModel> {
+		const res = this._generateFakeContract(id);
+		res.steps = this._generateFakeSteps(id);
+		return of(res);
 	}
 }

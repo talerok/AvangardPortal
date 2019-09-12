@@ -1,0 +1,13 @@
+<div class="detail">
+    <div class="chart">
+        
+    </div>
+    <div class="menu">
+        <div class="contract">
+            <app-contract-info [contract]="contract"></app-contract-info>
+        </div>
+        <div class="steps" *ngIf="contract">
+           <app-detail-step-menu [steps]="contract.steps"></app-detail-step-menu>
+        </div>
+    </div>
+</div>
