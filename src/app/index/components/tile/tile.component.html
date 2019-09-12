@@ -1,29 +1,5 @@
 <div class="tile">
     <div *ngFor="let contract of contracts" class="contract-wrapper">
-        <div class="contract">
-            <div class="info">
-                <div>
-                    ТИП: ГОЗ
-                </div>
-                <div>
-                    №: 0014
-                </div>
-                <div>
-                    К-ВО: 211
-                </div>
-                <div>
-                    ИЗДЕЛИЕ 1
-                </div>
-                <div>
-                    01/04/2018
-                </div>
-                <div>
-                    12/05/2019
-                </div>
-            </div>
-            <div class="state">
-    
-            </div>
-        </div>
+        <app-contract-info [contract]="contract"></app-contract-info>
     </div>
 </div>

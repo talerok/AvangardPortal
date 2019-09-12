@@ -12,10 +12,9 @@ export enum ContractState {
 export interface ContractModel {
 	type: ContractType;
 	num: string;
+	itemAmount: number;
 	itemName: string;
-	itemNumber: number;
-	delivery: Date;
-	Period: Date[];
+	period: Date[];
 
 	state: ContractState;
 	warnings: string[];

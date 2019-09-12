@@ -1,7 +1,9 @@
+@import '~src/app/common/styles/colors.less';
+
 @media (max-width: 700px) {
     .tile {
         .contract-wrapper {
-            width: calc(100% - 10px);
+            width: calc(100% - 4px);
         }
     }
 }
@@ -9,7 +11,7 @@
 @media (max-width: 1200px) and (min-width: 700px) {
     .tile {
         .contract-wrapper {
-            width: calc(50% - 10px);
+            width: calc(50% - 4px);
         }
     }
 }
@@ -17,7 +19,7 @@
 @media (max-width: 1500px) and (min-width: 1200px) {
     .tile {
         .contract-wrapper {
-            width: calc(33.3333% - 10px);
+            width: calc(33.3333% - 4px);
         }
     }
 }
@@ -25,7 +27,7 @@
 @media (max-width: 2000px) and (min-width: 1500px) {
     .tile {
         .contract-wrapper {
-            width: calc(25% - 10px);
+            width: calc(25% - 4px);
         }
     }
 }
@@ -33,7 +35,7 @@
 @media (min-width: 2000px) {
     .tile {
         .contract-wrapper {
-            width: calc(20% - 10px);
+            width: calc(20% - 4px);
         }
     }
 }
@@ -43,34 +45,12 @@
     display: flex;
     flex-wrap: wrap;
     .contract-wrapper {
-        //width: calc(100% / 5 - @margin * 2);
-        margin: 5px;
-
-        .contract {
-            width: 100%;
-            display: flex;
-            background-color: gray;
-            cursor: pointer;
-            .info {
-                width: 50%;
-                height: 150px;
-                color: white;
-                margin: 10px 5px 10px 10px;
-                
-                div {
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                }
-            }
-
-            .state {
-                width: 50%;
-                
-                margin: 10px 10px 10px 5px;
-                background-color: #fd3b3b;
-
-            }
-
+        background-color: @main-color;
+        margin: 2px;
+        cursor: pointer;
+        &:hover {
+            background-color: @second-color;
         }
+
     }
 }

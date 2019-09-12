@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { IndexComponent } from './components/index/index.component';
 import { RouterModule } from '@angular/router';
 import { IndexRouting } from './index-routing';
-import { CommonModule } from '@angular/common';
+import { CommonModule as Cmodule } from '@angular/common';
 import { TileComponent } from './components/tile/tile.component';
+import { CommonModule } from '@common/common.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { TileComponent } from './components/tile/tile.component';
 		TileComponent
 	],
 	imports: [
+		Cmodule,
 		CommonModule,
 		BrowserModule,
 		RouterModule.forRoot(IndexRouting),
