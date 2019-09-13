@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { ContractModel } from '@common/models/contract-model';
 
 
@@ -11,6 +11,9 @@ import { ContractModel } from '@common/models/contract-model';
 export class TileComponent implements OnInit {
 
 	@Input() contracts: ContractModel[];
+
+	// tslint:disable-next-line: no-output-native
+	@Output() select = new EventEmitter<number>();
 
 	constructor() { }
 
