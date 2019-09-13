@@ -30,8 +30,23 @@ export class ContractService {
 			itemName: `Изделие ${id}`,
 			period: [new Date(), new Date()],
 			state: id % 3 as ContractState,
-			warnings: this._generateFakeWarnings(id)
+			warnings: this._generateFakeWarnings(id),
+			steps: this._generateFakeSteps(id)
 		};
+	}
+
+	private _getRandomInt(min: number, max: number) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	private _generateRandomData() {
+		const res = [];
+		for (let i = 0; i < 12; i ++) {
+			res.push(i === 0 ? this._getRandomInt(0, 20) : res[i - 1] + this._getRandomInt(0, 20));
+		}
+		return res;
 	}
 
 	private _generateFakeSteps(id: number) {
@@ -40,7 +55,11 @@ export class ContractService {
 			for (let i = 0; i < (id + stepId + 1) % 6; i++) {
 				subSteps.push({
 					id: 100000 * id + 1000 * stepId + i,
-					name: `${x} + i`
+					name: `${x} ${i}`,
+					data: {
+						plan: this._generateRandomData(),
+						fact: this._generateRandomData()
+					}
 				});
 			}
 			return subSteps;
@@ -62,7 +81,6 @@ export class ContractService {
 
 	public getById(id: number): Observable<ContractModel> {
 		const res = this._generateFakeContract(id);
-		res.steps = this._generateFakeSteps(id);
 		return of(res);
 	}
 }

@@ -1,17 +1,13 @@
 @import '~src/app/common/styles/colors.less';
 
-.portal {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    .header {
-        height: 70px;
-        flex: none;
-        background-color: @main-color;
-    }
+.header {
+    height: 70px;
+    flex: none;
+    background-color: @main-color;
+}
 
-    .content {
-        padding: 10px;
-        height: 100%;
-    }
+.content {
+    margin: 10px;
+    position: relative;
+    min-height: calc(100vh - 90px);
 }

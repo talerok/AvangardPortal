@@ -22,5 +22,5 @@ export interface ContractModel {
 	state: ContractState;
 	warnings: string[];
 
-	steps?: ContractSubStepModel[][];
+	steps: ContractSubStepModel[][];
 }

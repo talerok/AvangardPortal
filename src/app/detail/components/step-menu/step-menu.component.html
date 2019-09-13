@@ -1,10 +1,29 @@
-<div class="step" *ngFor="let step of steps; let i = index">
-    <div class="info">
-        <div class="status">
-
+<ng-template #stepTpl let-step="step" let-even="even">
+    <div class="step" [ngClass]="{even: even, selected: _selected === step}">
+        <div class="info-wrapper">
+            <div class="info" (click)="select(step)">
+                <div class="status">
+                    
+                </div>
+                <div class="name">
+                    {{step.name}}
+                </div>
+            </div>
+            <div class="step-icon" *ngIf="step.children && step.children.length" [ngClass]="{opened: step.opened, closed: !step.opened}"
+                (click)="toggleStep($event, step)"
+            >
+            </div>
         </div>
-        <div class="name">
-            {{getStepName(i)}}
+        <div class="sub-steps" *ngIf="step.children" [ngClass]="{hidden: !step.opened }">
+            <ng-container *ngFor="let subStep of step.children; let i = index">
+                <ng-container
+                    *ngTemplateOutlet="stepTpl; context: {step: subStep, even: (i + !even) % 2}"></ng-container>
+            </ng-container>
         </div>
     </div>
-</div>
+</ng-template>
+
+<ng-container *ngFor="let step of menu; let i = index">
+    <ng-container
+        *ngTemplateOutlet="stepTpl; context: {step: step, even: i % 2}"></ng-container>
+</ng-container>

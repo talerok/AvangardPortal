@@ -6,12 +6,14 @@ import { DetailComponent } from './components/detail/detail.component';
 import { RouterModule } from '@angular/router';
 import { detailRouting } from './detail-routing';
 import { StepMenuComponent } from './components/step-menu/step-menu.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 @NgModule({
 	declarations: [
 		DetailComponent,
-		StepMenuComponent
+		StepMenuComponent,
+		ChartComponent
 	],
 	imports: [
 		Cmodule,

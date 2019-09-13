@@ -1,0 +1,11 @@
+.common-icon{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.open-icon(@color){
+    .common-icon;
+    @colorValue: e(%("%A", @color));
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1000 1000' enable-background='new 0 0 1000 1000' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M939.4,770.3L500.1,330.9L60.6,770.3L10,719.7l490.1-490l489.9,490L939.4,770.3z'/%3E%3C/g%3E%3C/svg%3E");
+}
