@@ -1,7 +1,8 @@
 @import '~src/app/common/styles/colors.less';
+@import '~src/app/common/styles/icons.less';
 
-@select-color: red;
-@hover-color: yellow;
+@select-color: #76d9ff;
+@hover-color: white;
 
 .step {
     cursor: pointer;
@@ -55,11 +56,11 @@
             width: 1.3rem;
 
             &.opened {
-                background-color: green;
+                .up-arrow(white);
             }
 
             &.closed {
-                background-color: red;
+                .down-arrow(white);
             }
 
             flex: none;

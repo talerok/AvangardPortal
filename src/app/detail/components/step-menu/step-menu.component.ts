@@ -35,6 +35,10 @@ export class StepMenuComponent {
 			this._getStepName(i),
 			step.map(subStep => new StepMenuElement(subStep.id, subStep.name, null))
 		));
+
+		setTimeout(() => {
+			this.select(this.menu[0]);
+		});
 	}
 
 	private _getStepName(id: number) {

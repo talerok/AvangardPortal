@@ -44,14 +44,14 @@ export class ChartComponent implements OnInit {
 					datasets: [{
 						label: 'План',
 						data: this._chartData ? this._chartData.plan : [],
-						borderColor: 'red',
+						borderColor: '#688dcf',
 						lineTension: 0,
 						borderWidth: 1
 					},
 					{
 						label: 'Факт',
 						data: this._chartData ? this._chartData.fact : [],
-						borderColor: 'green',
+						borderColor: '#ed8035',
 						lineTension: 0,
 						borderWidth: 1
 					}

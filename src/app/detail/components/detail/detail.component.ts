@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContractModel } from '@common/models/contract-model';
 import { ContractService } from '@common/services/contract.service';
@@ -21,7 +21,8 @@ export class DetailComponent implements OnInit {
 
 	constructor(
 		private readonly _activatedRoute: ActivatedRoute,
-		private readonly _contractService: ContractService
+		private readonly _contractService: ContractService,
+		private readonly _changeDetectorRef: ChangeDetectorRef
 	) { }
 
 	ngOnInit() {
@@ -42,6 +43,7 @@ export class DetailComponent implements OnInit {
 
 	public subStepSelected(id: number) {
 		this.chartData = ContractHepler.getSubStepChartData(this.contract, id);
+		this._changeDetectorRef.markForCheck();
 	}
 
 }

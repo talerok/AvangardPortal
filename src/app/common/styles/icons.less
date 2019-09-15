@@ -4,8 +4,13 @@
     background-repeat: no-repeat;
 }
 
-.open-icon(@color){
+.up-arrow(@color) {
     .common-icon;
     @colorValue: e(%("%A", @color));
-    background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1000 1000' enable-background='new 0 0 1000 1000' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M939.4,770.3L500.1,330.9L60.6,770.3L10,719.7l490.1-490l489.9,490L939.4,770.3z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 284.929 284.929' style='enable-background:new 0 0 284.929 284.929;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M282.082,195.285L149.028,62.24c-1.901-1.903-4.088-2.856-6.562-2.856s-4.665,0.953-6.567,2.856L2.856,195.285 C0.95,197.191,0,199.378,0,201.853c0,2.474,0.953,4.664,2.856,6.566l14.272,14.271c1.903,1.903,4.093,2.854,6.567,2.854 c2.474,0,4.664-0.951,6.567-2.854l112.204-112.202l112.208,112.209c1.902,1.903,4.093,2.848,6.563,2.848 c2.478,0,4.668-0.951,6.57-2.848l14.274-14.277c1.902-1.902,2.847-4.093,2.847-6.566 C284.929,199.378,283.984,197.188,282.082,195.285z' data-original='%23000000' class='active-path' data-old_color='%23000000' fill='@{colorValue}'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.down-arrow(@color) {
+    .up-arrow(@color);
+    transform: rotate(180deg);
 }
