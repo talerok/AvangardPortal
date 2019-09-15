@@ -7,20 +7,28 @@
     right: 0;
     top: 0;
     
-    .menu {
+    .menu-wrapper {
         vertical-align: top;
         display: inline-block;
         height: 100%;
         width: 400px;
         flex: none;
-        background-color: @main-color;
 
-        .contract {
-            margin: 10px;
-        }
+        .menu {
+            background-color: @main-color;
+    
+            display: flex;
+            flex-direction: column;
+            height: 100%;
 
-        .steps {
-            overflow: auto;
+            .contract {
+                margin: 10px;
+            }
+    
+            .steps {
+                overflow: auto;
+            }
+    
         }
 
     }
