@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { detailRouting } from './detail-routing';
 import { StepMenuComponent } from './components/step-menu/step-menu.component';
 import { ChartComponent } from './components/chart/chart.component';
-
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 
 @NgModule({
 	declarations: [
@@ -20,6 +20,8 @@ import { ChartComponent } from './components/chart/chart.component';
 		CommonModule,
 		BrowserModule,
 		RouterModule.forRoot(detailRouting),
+
+		ScrollPanelModule,
 	],
 	providers: [],
 	exports: [

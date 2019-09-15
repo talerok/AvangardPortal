@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { ContractSubStepModel } from '@common/models/contract-sub-step-model';
 import { ContractService } from '@common/services/contract.service';
+import { ScrollPanel } from 'primeng/scrollpanel';
 
 class StepMenuElement {
 
@@ -28,6 +29,8 @@ export class StepMenuComponent {
 	@Output() stepSelected = new EventEmitter<number>();
 	@Output() subStepSelected = new EventEmitter<number>();
 
+	@ViewChild(ScrollPanel, {static: true}) scrollPanel: ScrollPanel;
+
 	@Input() set steps(value: ContractSubStepModel[][]) {
 
 		this.menu = value.map((step, i) => new StepMenuElement(
@@ -39,6 +42,12 @@ export class StepMenuComponent {
 		setTimeout(() => {
 			this.select(this.menu[0]);
 		});
+
+		this._refreshScroll();
+	}
+
+	constructor(private readonly _changeDetectorRef: ChangeDetectorRef) {
+
 	}
 
 	private _getStepName(id: number) {
@@ -48,6 +57,13 @@ export class StepMenuComponent {
 	public toggleStep($event, step: StepMenuElement) {
 		$event.preventDefault();
 		step.opened = !step.opened;
+		this. _refreshScroll();
+	}
+
+	private _refreshScroll() {
+		setTimeout(() => {
+			this.scrollPanel.refresh();
+		});
 	}
 
 	public select(step: StepMenuElement) {
