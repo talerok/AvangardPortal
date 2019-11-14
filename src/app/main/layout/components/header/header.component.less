@@ -1,6 +1,32 @@
 @import '~src/app/common/styles/colors.less';
 
-.header {
-    height: 70px;
+:host {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	height: 70px;
     background-color: @main-color;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	.pic {
+		height: 50px;
+		width: 50px;
+		background-color: white;
+		margin-right: 10px;
+		flex: none;
+	}
+
+	.name {
+		color: white;
+	}
+}
+
+.date {
+	.description {
+		color: white;
+	}
 }
