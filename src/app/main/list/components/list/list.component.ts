@@ -4,11 +4,11 @@ import { ContractModel } from '@common/models/contract-model';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-index',
-	templateUrl: './index.component.html',
-	styleUrls: ['./index.component.less']
+	selector: 'app-main-list',
+	templateUrl: './list.component.html',
+	styleUrls: ['./list.component.less']
 })
-export class IndexComponent implements OnInit {
+export class ListComponent implements OnInit {
 
 	public contracts: ContractModel[];
 

@@ -1,27 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { IndexComponent } from './components/index/index.component';
+import { ListComponent } from './components/list/list.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule as Cmodule } from '@angular/common';
 import { TileComponent } from './components/tile/tile.component';
 import { CommonModule } from '@common/common.module';
-import { indexRouting } from './index-routing';
 
 
 @NgModule({
 	declarations: [
-		IndexComponent,
+		ListComponent,
 		TileComponent
 	],
 	imports: [
 		Cmodule,
 		CommonModule,
-		BrowserModule,
-		RouterModule.forRoot(indexRouting),
+		BrowserModule
 	],
 	providers: [],
 	exports: [
-		IndexComponent
+		ListComponent
 	]
 })
-export class IndexModule { }
+export class ListModule { }

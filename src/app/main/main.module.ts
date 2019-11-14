@@ -1,24 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MainComponent } from './components/main/main.component';
-import { CommonModule } from '@angular/common';
+import { ListModule } from './list/list.module';
+import { LayoutModule } from './layout/layout.module';
+import { DetailModule } from './detail/detail.module';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-
+import { mainRouting } from './main-routing';
 
 @NgModule({
-	declarations: [
-		MainComponent,
-		HeaderComponent
-	],
+	declarations: [],
 	imports: [
-		RouterModule,
-		CommonModule,
-		BrowserModule,
+		DetailModule,
+		ListModule,
+		LayoutModule
 	],
 	providers: [],
-	exports: [
-		MainComponent
-	]
+	bootstrap: []
 })
 export class MainModule { }

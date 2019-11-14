@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndexComponent } from './index.component';
+import { LayoutComponent } from './layout.component';
 
-describe('IndexComponent', () => {
-	let component: IndexComponent;
-	let fixture: ComponentFixture<IndexComponent>;
+describe('LayoutComponent', () => {
+	let component: LayoutComponent;
+	let fixture: ComponentFixture<LayoutComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [IndexComponent]
+			declarations: [LayoutComponent]
 		})
 			.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(IndexComponent);
+		fixture = TestBed.createComponent(LayoutComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

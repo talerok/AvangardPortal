@@ -3,7 +3,7 @@ import { ContractModel } from '@common/models/contract-model';
 
 
 @Component({
-	selector: 'app-index-tile',
+	selector: 'app-list-tile',
 	templateUrl: './tile.component.html',
 	styleUrls: ['./tile.component.less'],
 	changeDetection: ChangeDetectionStrategy.OnPush

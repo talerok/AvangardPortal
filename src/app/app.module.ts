@@ -1,21 +1,15 @@
 import { NgModule } from '@angular/core';
-
-import { MainComponent } from './main/components/main/main.component';
+import { GlobalLayoutComponent } from './global-layout/global-layout.component';
 import { MainModule } from './main/main.module';
-import { IndexModule } from './index/index.module';
-import { CommonModule } from '@common/common.module';
-import { DetailModule } from './detail/detail.module';
-import { HeaderComponent } from './main/components/header/header.component';
-
+import { RouterModule } from '@angular/router';
+import { appRouting } from './app-routing';
 @NgModule({
-	declarations: [],
+	declarations: [GlobalLayoutComponent],
 	imports: [
-		CommonModule,
 		MainModule,
-		IndexModule,
-		DetailModule
+		RouterModule.forRoot(appRouting)
 	],
 	providers: [],
-	bootstrap: [MainComponent]
+	bootstrap: [GlobalLayoutComponent]
 })
 export class AppModule { }
