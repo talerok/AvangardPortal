@@ -1,0 +1,21 @@
+<div class="calendar" [ngClass]="{disabled: disabled}" (mouseup)="onTouch()">
+	<div class="calendar-header">
+		<div class="left-button pi pi-chevron-left" (click)="prevClick()">
+		</div>
+		<div class="info" (click)="changeStep()">
+			{{Info}}
+		</div>
+		<div class="right-button pi pi-chevron-right" (click)="nextClick()">
+		</div>
+	</div>
+	<table class="calendar-body {{dataProvider.step}}-step">
+		<tr class="days-row">
+			<td class="days-cell" *ngFor="let day of local.days">{{day}}</td>
+		</tr>
+		<tr class="date-row" *ngFor="let row of dataProvider.data$ | async">
+			<td class="date-cell" *ngFor="let cell of row" (click)="select(cell)" [ngClass]="getClasses(cell)">
+				<span>{{getStr(cell)}}</span>
+			</td>
+		</tr>
+	</table>
+</div>

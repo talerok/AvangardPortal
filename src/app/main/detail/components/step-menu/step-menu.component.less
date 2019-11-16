@@ -6,7 +6,7 @@
 
 .step {
     cursor: pointer;
-   
+
     &.even {
         background-color: @second-color;
     }
@@ -28,22 +28,22 @@
             width: 100%;
             display: flex;
             align-items: center;
-    
+
             border-width: 0px 0px 0px 5px;
             border-style: solid;
             border-color:  transparent;
             padding: 5px 10px;
-    
+
             &:hover {
                 border-color: @hover-color;
             }
-    
+
             .status {
                 background-color: red;
                 height: 1.3rem;
                 width: 1.3rem;
             }
-    
+
             .name {
                 font-size: 1.3em;
                 color: white;
@@ -75,7 +75,11 @@
 
         &.hidden {
             height: 0;
-        }
+		}
+
+		&:not(.hidden) {
+			margin-bottom: 5px;
+		}
     }
 }
 

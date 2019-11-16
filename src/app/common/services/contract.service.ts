@@ -79,7 +79,7 @@ export class ContractService {
 		return of(this._generateFakeContracts(20));
 	}
 
-	public getById(id: number): Observable<ContractModel> {
+	public getById(id: number, date: Date): Observable<ContractModel> {
 		const res = this._generateFakeContract(id);
 		return of(res);
 	}

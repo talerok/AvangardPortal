@@ -1,0 +1,144 @@
+@main-bg-color: #007ad9;
+@main-color: white;
+
+@days-bg-color: @main-bg-color;
+@days-color: @main-color;
+
+@default-bg-color: transparent;
+@default-color: gray;
+@default-border-color: gray;
+
+@hover-bg-color: gray;
+@hover-color: black;
+@hover-border-color: black;
+
+@selected-color: @main-color;
+@selected-bg-color: @main-bg-color;
+@selected-border-color: black;
+
+@today-color: white;
+@today-bg-color: #fab826;
+@today-border-color: black;
+
+@disabled-color: red;
+
+@in-range-bg-color: #c4d7fd;
+@in-range-color: white;
+@in-range-border-color: black;
+
+
+.calendar {
+	display: inline-block;
+	user-select: none;
+
+	&:not(.disabled) {
+		.calendar-body {
+			.date-cell {
+				cursor: pointer;
+				&:hover:not(.disabled) {
+					background-color: @hover-bg-color;
+					color: @hover-color;
+					border-color: @hover-border-color;
+				}
+			}
+		}
+	}
+
+}
+
+.calendar-header {
+	display: flex;
+	margin: 2px 5px;
+    align-items: center;
+
+	.right-button, .left-button  {
+		flex: none;
+		cursor: pointer;
+		color: @default-color;
+		background-color: @default-bg-color;
+		&:hover {
+			color: @hover-color;
+		}
+
+	}
+
+	.info {
+		flex-grow: 1;
+		text-align: center;
+		cursor: pointer;
+		padding: 2px;
+		color: @default-color;
+		font-size: 1.2rem;
+		&:hover {
+			background-color: @hover-bg-color;
+			color: @hover-color;
+		}
+	}
+}
+
+.calendar-body {
+	text-align: center;
+	margin: 0 auto;
+
+	&:not(.month-step) .days-row{
+		display: none;
+	}
+
+	&.year-step, &.decade-step {
+		.date-cell {
+			padding: 19px;
+		}
+	}
+
+	.days-cell {
+		padding: 8px;
+	}
+
+
+	.date-cell {
+		color: @default-color;
+		background-color: @default-bg-color;
+		border-color: @default-border-color;
+		padding: 7px;
+		border: solid;
+		border-width: 1px;
+
+		&.in-range {
+			background-color: @in-range-bg-color;
+			color: @in-range-color;
+			border-color: @in-range-border-color;
+		}
+
+		&.today {
+			background-color: @today-bg-color;
+			color: @today-color;
+			border-color: @today-border-color;
+		}
+
+		&.selected {
+			background-color: @selected-bg-color;
+			color: @selected-color;
+			border-color: @selected-border-color;
+		}
+
+		&.disabled {
+			position: relative;
+			cursor: default !important;
+			&::before {
+				content: "X";
+				color: @disabled-color;
+				position: absolute;
+				line-height: 0px;
+				font-size: 34px;
+				top: 50%;
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	.days-cell {
+		background-color: @days-bg-color;
+		color: @days-color;
+	}
+}
