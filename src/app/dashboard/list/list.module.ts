@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule as Cmodule } from '@angular/common';
 import { TileComponent } from './components/tile/tile.component';
 import { CommonModule } from '../common/common.module';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
 	declarations: [
@@ -14,7 +15,8 @@ import { CommonModule } from '../common/common.module';
 	imports: [
 		Cmodule,
 		CommonModule,
-		BrowserModule
+		BrowserModule,
+		ScrollPanelModule
 	],
 	providers: [],
 	exports: [
