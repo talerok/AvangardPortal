@@ -1,0 +1,4 @@
+<div (click)="op.show($event)">{{value | date:'dd.MM.yyyy'}}</div>
+<p-overlayPanel appendTo="body" #op>
+	<app-dashboard-calendar [ngModel]="value" (ngModelChange)="valueChange($event)"></app-dashboard-calendar>
+</p-overlayPanel>

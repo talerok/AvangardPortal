@@ -1,0 +1,37 @@
+@import '~src/app/dashboard/common/styles/colors.less';
+
+.contract {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    .info {
+        width: 50%;
+        color: white;
+        margin: 10px 5px 10px 10px;
+
+        div {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    .status {
+        width: 50%;
+
+        margin: 10px 10px 10px 5px;
+        color: white;
+        padding-right: 20px;
+        &.ok {
+            background-color: @ok-color;
+        }
+
+        &.danger {
+            background-color: @danger-color;
+        }
+
+        &.critical {
+            background-color: @critical-color;
+        }
+
+    }
+}

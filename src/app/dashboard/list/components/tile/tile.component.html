@@ -1,0 +1,5 @@
+<div class="tile">
+    <div *ngFor="let contract of contracts" class="contract-wrapper" (click)="select.emit(contract.uid)">
+        <app-dashboard-contract-info [contract]="contract"></app-dashboard-contract-info>
+    </div>
+</div>

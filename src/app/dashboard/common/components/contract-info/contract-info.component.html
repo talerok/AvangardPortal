@@ -1,0 +1,29 @@
+<div class="contract" *ngIf="contract">
+    <div class="info">
+        <div>
+            ТИП: {{contractType}}
+        </div>
+        <div>
+            №: {{contract.num}}
+        </div>
+        <div>
+            К-ВО: {{contract.itemAmount}}
+        </div>
+        <div>
+            {{contract.itemName}}
+        </div>
+        <div>
+            {{formatDate(contract.period[0])}}
+        </div>
+        <div>
+            {{formatDate(contract.period[1])}}
+        </div>
+    </div>
+    <div class="status {{status}}" >
+        <ul>
+            <li *ngFor="let warning of contract.warnings">
+                {{warning}}
+            </li>
+        </ul>
+    </div>
+</div>

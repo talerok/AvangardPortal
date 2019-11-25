@@ -1,12 +1,12 @@
 import {Routes} from '@angular/router';
-import { LayoutComponent } from './main/layout/components/main/layout.component';
-import { mainRouting } from './main/main-routing';
+import { LayoutComponent } from './dashboard/layout/components/layout/layout.component';
+import { dashboardRouting } from './dashboard/dashboard-routing';
 
 export const appRouting: Routes = [
 	{
 		path: '',
 		component: LayoutComponent,
-		children: mainRouting
+		children: dashboardRouting
 	},
 ];
 

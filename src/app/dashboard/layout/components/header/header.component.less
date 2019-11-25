@@ -1,0 +1,36 @@
+@import '~src/app/dashboard/common/styles/colors.less';
+
+:host {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	height: 70px;
+    background-color: @main-color;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	.pic {
+		height: 50px;
+		width: 50px;
+		background-color: white;
+		margin-right: 10px;
+		flex: none;
+		cursor: pointer;
+	}
+
+	.name {
+		color: white;
+		user-select: none;
+	}
+}
+
+.date {
+	color: white;
+	display: flex;
+	.description {
+		margin-right: 5px;
+	}
+}

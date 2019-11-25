@@ -1,0 +1,89 @@
+@import '~src/app/dashboard/common/styles/colors.less';
+@import '~src/app/dashboard/common/styles/icons.less';
+
+@select-color: #76d9ff;
+@hover-color: white;
+
+.step {
+    cursor: pointer;
+
+    &.even {
+        background-color: @second-color;
+    }
+
+    &.selected {
+        &>.info-wrapper {
+            &>.info {
+                border-color: @select-color;
+            }
+        }
+    }
+
+    .info-wrapper {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+
+        .info {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            border-width: 0px 0px 0px 5px;
+            border-style: solid;
+            border-color:  transparent;
+            padding: 5px 10px;
+
+            &:hover {
+                border-color: @hover-color;
+            }
+
+            .status {
+                background-color: red;
+                height: 1.3rem;
+                width: 1.3rem;
+            }
+
+            .name {
+                font-size: 1.3em;
+                color: white;
+                margin-left: 10px;
+            }
+        }
+
+        .step-icon {
+            height: 1.3rem;
+            width: 1.3rem;
+
+            &.opened {
+                .up-arrow(white);
+            }
+
+            &.closed {
+                .down-arrow(white);
+            }
+
+            flex: none;
+        }
+    }
+
+    .sub-steps {
+        background-color: @main-color;
+        padding-left: 20px;
+
+        overflow: hidden;
+
+        &.hidden {
+            height: 0;
+		}
+
+		&:not(.hidden) {
+			margin-bottom: 5px;
+		}
+    }
+}
+
+::ng-deep .custombar .ui-scrollpanel-bar {
+    background-color: @second-color;
+    opacity: 1;
+}
